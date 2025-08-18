@@ -11,9 +11,9 @@ const Hero = () => {
   const navigate = useNavigate();
 
   const backgroundImages = [
-    "https://images.pexels.com/photos/7728016/pexels-photo-7728016.jpeg",
-    "https://images.pexels.com/photos/20371811/pexels-photo-20371811/free-photo-of-smiling-farmer-standing-on-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/1719669/pexels-photo-1719669.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    "https://www.roadscience.co.nz/assets/images/weather.jpg", // Soil closeup
+    "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&fit=crop&w=1260&q=80", // Green field, biodiversity
+    "https://www.iberdrola.com/documents/20125/42541/Desertificacion_746x419.jpg/c83c1c04-5a1f-c171-733b-d132b852f6fb?t=1631776118778" // Weather, sky, land
   ];
 
   const handleGetStarted = () => {
@@ -57,34 +57,33 @@ const Hero = () => {
             {/* Welcome Badge */}
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <Sprout className="w-4 h-4 text-green-300" />
-              <span className="text-white text-sm font-medium">Welcome to Your Climate-Smart Soil Advisor</span>
+              <span className="text-white text-sm font-medium">Empowering a Sustainable Future</span>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-              Smart Farming for
-              <span className="block text-accent drop-shadow-lg"> Better Yields</span>
+              Soil & Crop Insights for
+              <span className="block text-accent drop-shadow-lg"> a Greener Future</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl text-white/95 mb-8 max-w-2xl mx-auto drop-shadow-md">
-              Get personalized crop recommendations, soil analysis, and weather forecasts 
-              to maximize your harvest and optimize your farming decisions.
+              Discover your region's soil health, get tailored crop recommendations, and receive actionable insights to boost soil biodiversity. Our tool predicts weather patterns to help you plan ahead and fight desertification for a sustainable tomorrow.
             </p>
 
             {/* Key Features */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
               <div className="flex items-center justify-center gap-2 text-white/90">
                 <CheckCircle className="w-5 h-5 text-green-300" />
-                <span className="text-sm">AI-Powered Insights</span>
+                <span className="text-sm">Soil Health Insights</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-white/90">
                 <Cloud className="w-5 h-5 text-blue-300" />
-                <span className="text-sm">Weather Forecasts</span>
+                <span className="text-sm">Weather Prediction</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-white/90">
                 <Droplets className="w-5 h-5 text-cyan-300" />
-                <span className="text-sm">Soil Analysis</span>
+                <span className="text-sm">Crop Suitability & Biodiversity</span>
               </div>
             </div>
 
@@ -95,7 +94,7 @@ const Hero = () => {
                 className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-semibold shadow-lg"
                 onClick={handleGetStarted}
               >
-                Get Started Free
+                Sign Up Now
               </Button>
               {/* <Button 
                 size="lg" 
@@ -118,15 +117,15 @@ const Hero = () => {
             <div className="flex flex-wrap justify-center gap-6 text-white/80">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span className="text-sm">50,000+ Farmers Trust Us</span>
+                <span className="text-sm">Trusted by over 50000 environmentalists</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span className="text-sm">95% Weather Accuracy</span>
+                <span className="text-sm">Promoting Soil Biodiversity</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-                <span className="text-sm">24/7 AI Support</span>
+                <span className="text-sm">Helping Curb Desertification</span>
               </div>
             </div>
           </div>

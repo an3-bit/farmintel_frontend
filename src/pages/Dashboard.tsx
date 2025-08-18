@@ -12,6 +12,7 @@ import {
   Menu,
   X
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 // Types for our API responses
 interface SoilData {
@@ -62,6 +63,7 @@ const Dashboard = () => {
   const [error, setError] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const navigate = useNavigate();
 
   // Fetch advice from backend using geolocation
   const getLocationAndAdvice = () => {
@@ -138,7 +140,7 @@ const Dashboard = () => {
 
   // Dummy sign out handler
   const handleSignOut = () => {
-    // Implement sign out logic if needed
+    navigate("/");
   };
 
   return (

@@ -36,67 +36,67 @@ const LearnMore = () => {
 
   const features = [
     {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "AI-Powered Crop Recommendations",
-      description: "Get intelligent suggestions for the best crops to plant based on your soil composition, local climate, and market trends.",
-      image: "https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      benefits: ["Increase yield by 25%", "Reduce crop failure", "Optimize planting times"]
+      icon: <Sprout className="w-8 h-8" />,
+      title: "Soil Health & Biodiversity Insights",
+      description: "Gain deep insights into your soil's health and biodiversity. Learn how to improve your land's resilience, organic matter, and microbial life for a thriving ecosystem.",
+      image: "https://images.pexels.com/photos/169677/pexels-photo-169677.jpeg?auto=compress&fit=crop&w=1260&q=80",
+      benefits: ["Boost soil fertility sustainably", "Enhance biodiversity", "Combat land degradation"]
     },
     {
-      icon: <Droplets className="w-8 h-8" />,
-      title: "Advanced Soil Analysis",
-      description: "Upload soil test results or get AI predictions for NPK levels, pH balance, and soil health indicators.",
-      image: "https://images.pexels.com/photos/29288253/pexels-photo-29288253.jpeg",
-      benefits: ["Precise nutrient management", "Soil health monitoring", "Fertilizer optimization"]
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Region-Specific Crop Recommendations",
+      description: "Get personalized crop suggestions based on your soil, climate, and region. Our tool helps you choose crops that thrive and support local biodiversity.",
+      image: "https://images.pexels.com/photos/1301856/pexels-photo-1301856.jpeg?auto=compress&fit=crop&w=1260&q=80",
+      benefits: ["Grow crops suited to your land", "Support sustainable agriculture", "Increase resilience to climate change"]
     },
     {
       icon: <Cloud className="w-8 h-8" />,
-      title: "Weather Forecasting & Alerts",
-      description: "Get 7-day weather predictions with rainfall alerts, temperature forecasts, and planting recommendations.",
-      image: "https://images.pexels.com/photos/8890451/pexels-photo-8890451.jpeg",
-      benefits: ["Real-time weather updates", "Storm alerts", "Optimal planting windows"]
+      title: "Weather Prediction for Smart Decisions",
+      description: "Receive accurate weather forecasts to plan your farming activities. Make informed decisions on when to till, plant, and harvest, reducing risk and supporting soil conservation.",
+      image: "https://www.roadscience.co.nz/assets/images/weather.jpg",
+      benefits: ["Plan ahead for rainfall and drought", "Reduce soil erosion", "Optimize farm operations"]
     },
     {
-      icon: <BarChart3 className="w-8 h-8" />,
-      title: "Yield Analytics & Insights",
-      description: "Track your farm's performance with detailed analytics, yield predictions, and actionable insights.",
-      image: "https://images.pexels.com/photos/9374827/pexels-photo-9374827.jpeg",
-      benefits: ["Performance tracking", "Yield optimization", "Data-driven decisions"]
+      icon: <Droplets className="w-8 h-8" />,
+      title: "Desertification Prevention & Land Restoration",
+      description: "Get actionable advice to prevent desertification and restore degraded land. Learn best practices for water retention, cover cropping, and organic amendments.",
+      image: "https://www.iberdrola.com/documents/20125/42541/Desertificacion_746x419.jpg/c83c1c04-5a1f-c171-733b-d132b852f6fb?t=1631776118778",
+      benefits: ["Protect your land from desertification", "Restore soil vitality", "Promote a greener future"]
     }
   ];
 
   const testimonials = [
     {
       name: "John Mwangi",
-      role: "Maize Farmer",
+      role: "Environmentalist",
       location: "Nakuru, Kenya",
       rating: 5,
-      content: "This app has transformed my farming. I've seen a 30% increase in my maize yield since using the AI recommendations. The weather alerts are incredibly accurate!",
+      content: "This app has transformed my approach to land management. I've seen a 30% improvement in soil biodiversity since using the recommendations. The weather alerts are incredibly accurate!",
       avatar: "https://images.pexels.com/photos/20371811/pexels-photo-20371811/free-photo-of-smiling-farmer-standing-on-field.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     },
     {
       name: "Sarah Ochieng",
-      role: "Coffee Farmer",
+      role: "Soil Conservationist",
       location: "Kiambu, Kenya",
       rating: 5,
-      content: "The soil analysis feature helped me understand exactly what my coffee plants needed. My harvest quality has improved significantly, and I'm getting better prices at the market.",
+      content: "The soil analysis feature helped me understand exactly what my land needed. My restoration projects have improved significantly, and I'm seeing better ecosystem health.",
       avatar: "https://images.pexels.com/photos/1719669/pexels-photo-1719669.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
       name: "David Kamau",
-      role: "Mixed Crop Farmer",
+      role: "Environmental Advocate",
       location: "Eldoret, Kenya",
       rating: 5,
-      content: "As a small-scale farmer, I was skeptical about technology, but this app is so easy to use. The yield predictions are spot-on, and I've reduced my fertilizer costs by 40%.",
+      content: "As a community environmentalist, I was skeptical about technology, but this app is so easy to use. The biodiversity insights are spot-on, and I've reduced land degradation by 40%.",
       avatar: "https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
     }
   ];
 
   const stats = [
-    { number: "50,000+", label: "Farmers Using Our Platform" },
-    { number: "25%", label: "Average Yield Increase" },
+    { number: "50,000+", label: "Land Stewards Empowered" },
+    { number: "30%", label: "Improved Soil Biodiversity" },
     { number: "95%", label: "Weather Forecast Accuracy" },
-    { number: "24/7", label: "AI Support Available" }
+    { number: "100+", label: "Regions Supported" }
   ];
 
   return (
@@ -124,12 +124,11 @@ const LearnMore = () => {
       <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-700 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Discover How Smart Farming
-            <span className="block text-green-200">Transforms Agriculture</span>
+            Empowering Sustainable Land Management
+            <span className="block text-green-200">for a Greener Planet</span>
           </h1>
           <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-            Learn how our AI-powered platform helps farmers increase yields, reduce costs, 
-            and make data-driven decisions for better farming outcomes.
+            Our platform helps you understand your soil, select the right crops, and take action to improve biodiversity and prevent desertification. Make every decision count for your land and the environment.
           </p>
         </div>
       </section>
@@ -223,11 +222,10 @@ const LearnMore = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              What Our Farmers Say
+              What Our Environmentalists Say
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join thousands of satisfied farmers who have transformed their agricultural practices 
-              with our smart farming platform.
+              Join thousands of dedicated environmentalists who have transformed their land management practices with our platform.
             </p>
           </div>
 
@@ -268,11 +266,10 @@ const LearnMore = () => {
       <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-700 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Farming?
+            Ready to Restore and Protect Your Land?
           </h2>
           <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of farmers who are already using our platform to increase their yields 
-            and make smarter farming decisions. Start your journey today!
+            Join a growing community of environmentalists using technology to enhance soil health, boost biodiversity, and fight desertification. Start your journey to a more sustainable future today!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
@@ -292,7 +289,6 @@ const LearnMore = () => {
               Back to Home
             </Button>
           </div>
-          
           {/* Trust Indicators */}
           <div className="mt-12 flex flex-wrap justify-center gap-8 text-green-100">
             <div className="flex items-center gap-2">
@@ -301,11 +297,11 @@ const LearnMore = () => {
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-300" />
-              <span className="text-sm">14-Day Free Trial</span>
+              <span className="text-sm">Promotes Biodiversity</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="w-5 h-5 text-green-300" />
-              <span className="text-sm">Cancel Anytime</span>
+              <span className="text-sm">Supports Land Restoration</span>
             </div>
           </div>
         </div>

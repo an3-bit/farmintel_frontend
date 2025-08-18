@@ -41,7 +41,7 @@ const SignIn = () => {
               Climate-Smart Soil Advisor
             </CardTitle>
             <p className="text-muted-foreground mt-2">
-              Sign in to access your farming dashboard
+              Sign in to access your environmental dashboard
             </p>
           </CardHeader>
           <CardContent>

@@ -89,9 +89,14 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
     setTimeout(() => {
       setIsLoading(false);
       if (signUpName && signUpEmail && signUpPhone && signUpPassword) {
-        setShowOtpVerification(true);
-        // In a real app, you would send OTP to the phone number
-        alert("OTP sent to your phone number!");
+        // After registration, switch to sign in tab
+        setActiveTab("signin");
+        setSignUpName("");
+        setSignUpEmail("");
+        setSignUpPhone("");
+        setSignUpPassword("");
+        setSignUpConfirmPassword("");
+        alert("Account created! Please sign in with your email and password.");
       }
     }, 1000);
   };
@@ -138,7 +143,7 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
             Climate-Smart Soil Advisor
           </DialogTitle>
           <p className="text-muted-foreground mt-2">
-            {showForgotPassword ? "Reset your password" : showOtpVerification ? "Verify your phone number" : "Welcome to smart farming"}
+            {showForgotPassword ? "Reset your password" : showOtpVerification ? "Verify your phone number" : "Welcome to smart environmental stewardship"}
           </p>
         </DialogHeader>
 
@@ -180,46 +185,6 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Sign In
-              </Button>
-            </form>
-          ) : showOtpVerification ? (
-            // OTP Verification Form
-            <form onSubmit={handleOtpVerification} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="otp" className="text-sm font-medium">
-                  Enter 6-digit OTP
-                </Label>
-                <div className="text-sm text-muted-foreground mb-4">
-                  We've sent a verification code to {signUpPhone}
-                </div>
-                <Input
-                  id="otp"
-                  type="text"
-                  placeholder="000000"
-                  value={otp}
-                  onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
-                  required
-                  className="h-11 text-center text-lg font-mono"
-                  maxLength={6}
-                />
-              </div>
-              
-              <Button
-                type="submit"
-                className="w-full h-11 bg-primary hover:bg-primary/90"
-                disabled={isLoading}
-              >
-                {isLoading ? "Verifying..." : "Verify OTP"}
-              </Button>
-
-              <Button
-                type="button"
-                variant="ghost"
-                className="w-full h-11"
-                onClick={handleBackToSignUp}
-              >
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Sign Up
               </Button>
             </form>
           ) : (
