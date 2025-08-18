@@ -45,6 +45,9 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
     setTimeout(() => {
       setIsLoading(false);
       if (signInEmail && signInPassword) {
+        // Store user name in localStorage for navbar initial (for demo, use email prefix)
+        const name = signInEmail.split('@')[0] || 'User';
+        localStorage.setItem('userName', name.charAt(0).toUpperCase() + name.slice(1));
         onClose();
         navigate("/dashboard");
       }
@@ -89,6 +92,8 @@ const AuthModal = ({ isOpen, onClose }: AuthModalProps) => {
     setTimeout(() => {
       setIsLoading(false);
       if (signUpName && signUpEmail && signUpPhone && signUpPassword) {
+        // Store user name in localStorage for navbar initial
+        localStorage.setItem('userName', signUpName.trim().split(' ')[0] || 'User');
         // After registration, switch to sign in tab
         setActiveTab("signin");
         setSignUpName("");
