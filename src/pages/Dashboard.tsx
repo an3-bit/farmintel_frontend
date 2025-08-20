@@ -7,7 +7,6 @@ import {
   FileText,
   Settings,
   CheckCircle,
-  AlertTriangle,
   History,
   Menu,
   X
@@ -36,7 +35,6 @@ interface Recommendations {
   crop: string;
   soil: string;
   weather: string;
-  alternativeCrops?: string[];
   biodiversity?: string; // Added biodiversity to the interface
 }
 
@@ -58,7 +56,6 @@ const Dashboard = () => {
     crop: "",
     soil: "",
     weather: "",
-    alternativeCrops: [],
   });
   const [totalRain, setTotalRain] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -114,9 +111,13 @@ const getLocationAndAdvice = () => {
           crop: data.recommendations?.crop || "",
           soil: data.recommendations?.soil || "",
           weather: data.recommendations?.weather || "",
-          alternativeCrops: data.recommendations?.alternativeCrops || [],
           biodiversity: data.recommendations?.biodiversity || "", // Assign biodiversity
         });
+        
+        // Debug logging
+        console.log('Frontend received recommendations:', data.recommendations);
+        console.log('Soil recommendation text:', data.recommendations?.soil);
+        console.log('Biodiversity text:', data.recommendations?.biodiversity);
         setTotalRain(Number(data.totalRain) || 0);
         // Fetch real-time weather data from Open-Meteo (now with rainfall and humidity)
         const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m,precipitation,relative_humidity_2m`);
@@ -302,13 +303,17 @@ const getLocationAndAdvice = () => {
               {/* Crop Recommendation Section */}
               <div className="mb-8">
                 <Card className="bg-green-50 border border-green-200">
-                  <CardContent className="p-4 whitespace-pre-line">
-                    <div className="flex items-center gap-3">
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-3 mb-4">
                       <CheckCircle className="text-green-600" size={20} />
-                      <div>
-                        <div className="font-medium text-green-900 text-lg">Soil Health Recommendation</div>
-                        <div className="text-gray-700 mt-1">{recommendations.soil}</div>
-                      </div>
+                      <div className="font-medium text-green-900 text-lg">Smart Soil & Crop-Specific Recommendations</div>
+                    </div>
+                    <div className="text-gray-700 text-sm leading-relaxed whitespace-pre-line font-mono bg-white p-4 rounded-lg border">
+                      {recommendations.soil.split('**').map((part, index) => 
+                        index % 2 === 1 ? 
+                          <span key={index} className="font-bold text-green-800">{part}</span> : 
+                          part
+                      )}
                     </div>
                   </CardContent>
                 </Card>
@@ -318,10 +323,17 @@ const getLocationAndAdvice = () => {
               {recommendations.biodiversity && (
                 <div className="mb-8">
                   <Card className="bg-green-100 border border-green-300">
-                    <CardContent className="p-4 whitespace-pre-line">
-                      <div className="flex items-center gap-3">
+                    <CardContent className="p-4">
+                      <div className="flex items-center gap-3 mb-3">
                         <span className="text-green-700 text-2xl">🌿</span>
-                        <div className="text-gray-700 mt-1">{recommendations.biodiversity}</div>
+                        <div className="font-medium text-green-900 text-lg">Soil Biodiversity & Land Restoration</div>
+                      </div>
+                      <div className="text-gray-700 text-sm leading-relaxed whitespace-pre-line font-mono bg-white p-4 rounded-lg border">
+                        {recommendations.biodiversity.split('**').map((part, index) => 
+                          index % 2 === 1 ? 
+                            <span key={index} className="font-bold text-green-800">{part}</span> : 
+                            part
+                        )}
                       </div>
                     </CardContent>
                   </Card>
@@ -336,7 +348,7 @@ const getLocationAndAdvice = () => {
                     <Card key={index} className="bg-white border border-green-200">
                       <CardContent className="p-4">
                         <div className="flex items-center gap-3">
-                          <AlertTriangle className="text-blue-600" size={20} />
+                          <span className="text-blue-600 text-2xl">🌤️</span>
                           <div>
                             <div className="font-medium text-green-900">
                               {new Date(day.date).toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric' })}
@@ -357,20 +369,39 @@ const getLocationAndAdvice = () => {
                 <div className="mb-8">
                   <h2 className="text-xl font-semibold text-green-800 mb-4">Access History</h2>
                   <div className="space-y-4">
-                    {history.map((item, index) => (
-                      <Card key={index} className="bg-white border border-green-200">
-                        <CardContent className="p-4">
-                          <div className="flex items-center gap-3">
-                            <History className="text-blue-600" size={20} />
-                            <div>
-                              <div className="font-medium text-green-900">
-                                {item.county} - {item.crop} - {index === history.length - 1 ? 'Accessed now' : new Date(item.accessedAt).toLocaleString()}
+                    {history.map((item, index) => {
+                      // Handle different possible timestamp field names
+                      const timestamp = item.createdat || item.createdAt || item.accessedAt;
+                      let displayTime = 'Accessed now';
+                      
+                      if (index > 0 && timestamp) {
+                        try {
+                          const date = new Date(timestamp);
+                          if (!isNaN(date.getTime())) {
+                            displayTime = date.toLocaleString();
+                          } else {
+                            displayTime = 'Unknown time';
+                          }
+                        } catch (error) {
+                          displayTime = 'Unknown time';
+                        }
+                      }
+                      
+                      return (
+                        <Card key={index} className="bg-white border border-green-200">
+                          <CardContent className="p-4">
+                            <div className="flex items-center gap-3">
+                              <History className="text-blue-600" size={20} />
+                              <div>
+                                <div className="font-medium text-green-900">
+                                  {item.county} - {item.crop} - {displayTime}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    ))}
+                          </CardContent>
+                        </Card>
+                      );
+                    })}
                   </div>
                 </div>
               )}
