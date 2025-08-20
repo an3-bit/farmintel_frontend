@@ -89,7 +89,7 @@ const getLocationAndAdvice = () => {
         // Log the payload to be sent
         console.log("Sending to backend:", payload);
 
-        const response = await fetch("https://farmintel-backend.onrender.com/api/get-agri-advice", {
+        const response = await fetch("https://farmintel-backend.vercel.app/api/get-agri-advice", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
